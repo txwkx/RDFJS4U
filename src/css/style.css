@@ -79,13 +79,13 @@ body {
   color: #999;
 }
 
-.sidebar-nav li a:hover {
+.filter a:hover {
   text-decoration: none;
   color: #fff;
 }
 
-.sidebar-nav li a:active,
-.sidebar-nav li a:focus {
+.filter li a:active,
+.filter li a:focus {
   text-decoration: none;
 }
 
@@ -104,19 +104,8 @@ body {
   width: 100%;
 }
 
-.green {
-  border: 1px solid;
-  border-color: green;
-  background-color: green;
-}
-
-.blue {
-  border: 2px solid blue;
-  border-color: blue;
-  background-color: blue;
-}
-
-.features-set.inactive { opacity: 0.5; }
+.features-set.active { opacity: 1; }
+.features-set:hover { opacity: 0.8;}
 
 @media(min-width:768px) {
   #wrapper {
@@ -176,5 +165,43 @@ body {
 
 /* Table Styles */
 .nav-tabs {border-bottom: 0;}
+.nav-tabs li a:hover {
+  opacity: 1;
+  background-color: none;
+  border: none;
+}
 
 .table thead tr th {border-bottom: 3px solid #000;}
+
+/* Color box */
+.box {
+  border: 1px solid;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  opacity: 0.5;
+}
+
+.red {
+  background-color: rgb(127,65,58);
+  border-color: rgb(191,97,87);
+}
+.orange {
+  background-color: rgb(127,81,45);
+  border-color: rgb(191,121,68);
+}
+.yellow {
+  background-color: rgb(127,115,58);
+  border-color: rgb(191,173,87);
+}
+.green {
+  background-color: rgb(64,127,75);
+  border-color: rgb(96,191,110);
+}
+.blue {
+  background-color: rgb(56,115,127);
+  border-color: rgb(85,172,191);
+}
+.purple {
+  background-color: rgb(99,71,127);
+  border-color: rgb(148,107,191);
+}
