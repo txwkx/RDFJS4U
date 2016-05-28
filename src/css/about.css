@@ -1,10 +1,49 @@
 /* Typography Styles */
-h1 {text-align: center; text-transform: uppercase;}
+body {color: #fff; padding-top: 51px; background-color: rgb(44, 62, 80);}
+
+h1 {}
+h2 {
+  text-align: center;
+  font-size: 18px;
+}
+h3 {
+  font-size: 16px;
+  text-decoration: underline;
+  margin: 10px 0;
+  padding: 0;
+}
+
+input:hover {cursor: pointer;}
+
+
+p, .checkbox, .radio, .checkbox label, .radio label, ul, ol{margin: 0; padding: 0;}
+label {display: inline;}
+
+.btn {
+  border: none;
+  text-shadow: none;
+  filter: none;
+  background-image: none;
+}
+
+.btn-default {
+  background-color: rgb(52, 73, 94);
+}
+
+.btn-default:hover {
+  background-color: rgb(44, 62, 80);
+  border: none;
+  text-shadow: none;
+  background-image: none;
+}
 
 /* Toggle Styles */
-body {
-  padding-top: 51px;
+.navbar-fixed-top{
+  background: rgb(52, 73, 94);
+  border: 1px solid rgba(0,0,0,0.6);
 }
+
+
 /* Top Navigation */
 
 .top-nav {
@@ -20,7 +59,6 @@ body {
   padding-top: 15px;
   padding-bottom: 15px;
   line-height: 20px;
-  color: #999;
 }
 
 .top-nav>li>a:hover,
@@ -28,13 +66,11 @@ body {
 .top-nav>.open>a,
 .top-nav>.open>a:hover,
 .top-nav>.open>a:focus {
-  color: #fff;
-  background-color: #000;
+  color: rgb(44, 62, 80);
+  background-color: rgb(236, 240, 241);
 }
 
 /* */
-
 .member .photo {
   max-width: 270px;
   max-height: 200px;
-}
