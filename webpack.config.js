@@ -7,6 +7,13 @@ module.exports = {
   devtool: debug ? "inline-sourcemap" : null,
   entry: "./js/client.js",
   module: {
+    preLoaders: [
+      {
+        test: /\.jsx?$/,
+        include: [new RegExp(path.join(__dirname, 'src'))],
+        loader: 'eslint'
+      }
+    ],
     loaders: [
       {
         test: /\.jsx?$/,
@@ -31,6 +38,9 @@ module.exports = {
   devServer: {
     port: 3333,
     contentBase: "src"
+  },
+  eslint: {
+    configFile: '.eslintrc'
   },
   plugins: debug ? [] : [
     new webpack.optimize.DedupePlugin(),
