@@ -255,3 +255,8 @@ label {display: inline;}
 .grey {
   background-color: rgb(189, 195, 199);
 }
+
+/* ABOUT PAGE */
+.member .photo {
+  max-width: 270px;
+  max-height: 200px;
