@@ -140,7 +140,7 @@ label {display: inline;}
 
   #sidebar-wrapper {
     width: 270px;
-    padding-bottom: 100px;
+    padding-bottom: 200px;
   }
 
   #wrapper.toggled #sidebar-wrapper {
