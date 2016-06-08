@@ -1,13 +1,14 @@
 'use strict';
 import React from 'react';
 
+const ddInstances = [];
+
 class Dropdown extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
       isOpened: false,
-      isActive: false,
       title: this.props.dropdownTitle,
       //later this list would be received by props
       dropdownList: [
@@ -18,52 +19,34 @@ class Dropdown extends React.Component {
       ],
     };
 
-    this._hideDropdown = this._hideDropdown.bind(this);
+
   }
 
   componentDidMount() {
-    window.addEventListener('click', this._hideDropdown, false);
+    ddInstances.push(this);
   }
 
   componentWillUnmount() {
-    window.removeEventListener('click', this._hideDropdown, false);
+    ddInstances.splice(instances.indexOf(this), 1);
   }
 
-  //Close-Open the dropdown
-  _toggleDropdown(){
-    const isOpened = !this.state.isOpened;
-    this.setState({isOpened});
+  open(e){
+    e.stopPropagation();
+    this.setState({isOpened: !this.state.isOpened});
+    ddInstances.filter(item => item != this).forEach(item => item.close());
   }
 
-  _hideDropdown() {
-    const isActive = this.state.isActive;
-
-    // Hide dropdown block if it's not active
-    if (!isActive) {
-      this.setState({ isOpened: false });
-    }
-  }
-
-  _handleFocus() {
-    // Make active on focus
-    this.setState({ isActive: true });
-  }
-
-  _handleBlur() {
-    // Clean up everything on blur
-    this.setState({
-      isOpened: false,
-      isActive: false,
-    });
+  close(){
+    this.setState({isOpened: false});
   }
 
   //Set the item value from the dropdown list to the initial default title
-  _assignFilter(val){
-    console.log(`Assign ${val}`);
+  assignFilter(val){
     if(val != this.state.title){
       const title = val;
       this.setState({title});
     }
+    this.close();
   }
 
   render() {
@@ -72,7 +55,7 @@ class Dropdown extends React.Component {
     //Forming the list of items in the dropdown
     let ddList = this.state.dropdownList.map ( ddItem => {
       return <li
-              onClick={()=>{ this._assignFilter(ddItem.value).bind(this); }}
+              onClick={()=>{ this.assignFilter(ddItem.name); }}
               key={ddItem.id}>
               <a>{ddItem.name}</a>
             </li>;
@@ -81,9 +64,7 @@ class Dropdown extends React.Component {
     return (
       <div class={ddClass}>
         <button
-          onFocus={this._handleFocus.bind(this)}
-          onBlur={this._handleBlur.bind(this)}
-          onClick={this._toggleDropdown.bind(this)}
+          onClick={this.open.bind(this)}
           class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
           {this.state.title} <span class="caret"></span>
         </button>
@@ -94,5 +75,7 @@ class Dropdown extends React.Component {
     );
   }
 }
+
+window.addEventListener('click', e => ddInstances.forEach(item => item.close()), false);
 
 export default Dropdown;

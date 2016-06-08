@@ -196,13 +196,14 @@ label {display: inline;}
   border: 1px solid transparent;
   border-radius: 4px 4px 0 0;
   margin-right: 2px;
-  opacity: 0.5;
+  opacity: 0.8;
 }
 
 .nav-tabs li:hover,
 .nav-tabs li:active,
 .nav-tabs li:focus {
   opacity: 1;
+  text-decoration: underline;
 }
 
 .nav-tabs>li>a {
@@ -231,7 +232,6 @@ label {display: inline;}
 .box {
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
-  opacity: 0.5;
 }
 
 .red {
