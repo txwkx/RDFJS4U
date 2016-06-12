@@ -31,9 +31,8 @@ class Sidebar extends React.Component {
               </li>
             </ul>
           </div>
-
-        <FeaturesSet title={"Parsing"} color={"red"}/>
-        <FeaturesSet title={"Data storage"} color={"orange"}/>
+        <FeaturesSet title={"Parsing"} colour={"red"} />
+        <FeaturesSet title={"Data storage"} colour={"orange"} />
 
       </div>
     );
