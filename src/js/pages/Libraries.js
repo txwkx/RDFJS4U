@@ -2,6 +2,7 @@
 import React from 'react';
 
 import Sidebar from '../components/layout/Sidebar';
+import SearchResult from '../components/SearchResult';
 
 class Libraries extends React.Component {
 
@@ -21,15 +22,10 @@ class Libraries extends React.Component {
               </h1>
             </div>
           </div>
-          <div class="row">
-            <div class="col-lg-12">
-              <div class="alert alert-info alert-dismissable">
-                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-                <i class="fa fa-search"></i>  <strong>Search results:</strong> <b>5</b> libraries have matched your requrest!
-              </div>
-            </div>
-          </div>
-          <div class="row">
+
+        <SearchResult results={0} />
+
+        <div class="row">
             <div class="col-lg-12">
               <ul class="nav nav-tabs">
                 <li role="presentation" class="grey active"><a href="#">All</a></li>

@@ -260,3 +260,11 @@ label {display: inline;}
 .member .photo {
   max-width: 270px;
   max-height: 200px;
+
+.alert-danger {
+  background-color: rgb(231, 76, 60);
+}
+
+.alert-info {
+  background-color: rgb(52, 152, 219);
+}
