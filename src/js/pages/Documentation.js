@@ -1,12 +1,14 @@
 'use strict';
 import React from 'react';
 
+import PageTitle from '../components/layout/PageTitle';
+
 class Documentation extends React.Component {
 
   render() {
     return (
       <div>
-        <h1> Documentation here </h1>
+        <PageTitle pageTitle={'Documentation'} />
       </div>
     );
   }
