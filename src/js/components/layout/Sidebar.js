@@ -8,7 +8,11 @@ class Sidebar extends React.Component {
   render() {
     return (
       <div id="sidebar-wrapper">
-        <h2>FEATURES</h2>
+        <h2>FILTERS</h2>
+        <div class='features-set filter-buttons'>
+          <button type="button" class="btn btn-danger">Clear</button>
+          <button type="button" class="btn btn-success pull-right">Apply</button>
+        </div>
           <div class='features-set general'>
             <h3>General</h3>
             <ul class="sidebar-nav">

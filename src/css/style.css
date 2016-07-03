@@ -31,10 +31,13 @@ label {display: inline;}
 }
 
 .btn:hover {
-  background-color: rgb(44, 62, 80);
   border: none;
   text-shadow: none;
   background-image: none;
+}
+
+.filter-buttons .btn {
+  width: 45%;
 }
 
 /* Toggle Styles */
