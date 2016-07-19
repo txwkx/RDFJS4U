@@ -10,7 +10,7 @@ class Slider extends React.Component {
 
     return (
       <div class="filter">
-        <p>{label} <i class="fa fa-users"></i>
+        <p>{label} <i class={this.props.icon}></i>
           <input ref='inp'
           type='range'
           min={this.props.min}

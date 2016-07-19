@@ -3,17 +3,14 @@ import React from 'react';
 
 class TableTabs extends React.Component {
 
-  setActive(id){
-    console.log('This id: '+id);
-  }
-
   render() {
     let tabsList = this.props.tabsList.map ( tab => {
+      const className = (this.props.activeTab === tab.id) ? `active ${tab.colour}` : `${tab.colour}`;
       return <li role="tab"
-            onClick={() => { this.setActive(tab.id); }}
+            onClick={() => { this.props.setActiveTab(tab.id); }}
             key={tab.id}
             ref={'tab'+tab.id}
-            class={tab.colour}>
+            class={className}>
             <a href="#">{tab.title}</a>
             </li>;
     });

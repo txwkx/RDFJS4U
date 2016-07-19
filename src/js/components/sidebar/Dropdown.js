@@ -9,16 +9,8 @@ class Dropdown extends React.Component {
 
     this.state = {
       isOpened: false,
-      title: this.props.dropdownTitle,
-      //later this list would be received by props
-      dropdownList: [
-        {id: 1, name: 'RDF/JSON', value: 'RDFJSON'},
-        {id: 2, name: 'JSON-LD', value: 'JSONLD'},
-        {id: 3, name: 'D3', value: 'D3'},
-        {id: 4, name: 'Turtle', value: 'Turtle'},
-      ],
+      title: this.props.title
     };
-
 
   }
 
@@ -53,7 +45,7 @@ class Dropdown extends React.Component {
     const ddClass = this.state.isOpened === true ? 'filter open' : 'filter';
 
     //Forming the list of items in the dropdown
-    let ddList = this.state.dropdownList.map ( ddItem => {
+    let ddList = this.props.dropdownList.map ( ddItem => {
       return <li
               onClick={()=>{ this.assignFilter(ddItem.name); }}
               key={ddItem.id}>
