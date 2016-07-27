@@ -4,39 +4,41 @@ import React from 'react';
 import FeaturesSet from '../sidebar/FeaturesSet';
 
 class Sidebar extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+
+  applyFilters(e){
+    e.preventDefault();
+    console.log('Filters applied');
+  }
+
+  resetFilters(e){
+    e.preventDefault();
+    console.log('Filters reseted');
+  }
 
   render() {
+    const featuresSets = this.props.features.map(item => {
+      const isActive = (item.id === this.props.activeFiltersSet) ? true : false;
+
+      return <FeaturesSet
+              key={item.title}
+              title={item.title}
+              colour={item.colour}
+              filters={item.filters}
+              isActive={isActive} />;
+    });
+
     return (
       <div id="sidebar-wrapper">
         <h2>FILTERS</h2>
         <div class='features-set filter-buttons'>
-          <button type="button" class="btn btn-danger">Clear</button>
-          <button type="button" class="btn btn-success pull-right">Apply</button>
+          <button type="button" class="btn btn-danger" onClick={this.resetFilters.bind(this)}>Clear</button>
+          <button type="button" class="btn btn-success pull-right" onClick={this.applyFilters.bind(this)}>Apply</button>
         </div>
-          <div class='features-set general'>
-            <h3>General</h3>
-            <ul class="sidebar-nav">
-              <li><div class='filter'><a class="checkbox"><label><input type="checkbox" value="" />Environment <i class="fa fa-desktop"></i></label></a></div></li>
-              <li><div class='filter'><a class="checkbox" ><label><input type="checkbox" value="" />Documentation <i class="fa fa-file-text"></i></label></a></div></li>
-              <li><div class='filter'><a class="checkbox" ><label><input type="checkbox" value="" />Open source <i class="fa fa-file-code-o"></i></label></a></div></li>
-              <li>
-                <div class="filter">
-                <p>Source size - <label for="fader">50 kB</label><i class="fa fa-cog"></i>
-                <input type="range" min="0" max="100" value="50" id="fader" step="1" oninput="outputUpdate(value)" />
-                </p>
-                </div>
-              </li>
-              <li>
-                <div class="filter">
-                <p>Community size - <label for="fader">20 k</label><i class="fa fa-users"></i>
-                <input type="range" min="0" max="100" value="50" id="fader" step="1" oninput="outputUpdate(value)" />
-                </p>
-                </div>
-              </li>
-            </ul>
-          </div>
-        <FeaturesSet title={"Parsing"} colour={"red"} />
-        <FeaturesSet title={"Data storage"} colour={"orange"} />
+
+        {featuresSets}
 
       </div>
     );
