@@ -9,9 +9,10 @@ const config = {
     apiKey: 'AIzaSyDm7TPKpzOPvcAgqwA4X5v0iTWN3wmam6o',
     authDomain: 'rdfjsapp.firebaseapp.com',
     databaseURL: 'https://rdfjsapp.firebaseio.com',
-    storageBucket: '',
+    storageBucket: "rdfjsapp.appspot.com",
   };
-const firebaseApp = firebase.initializeApp(config);
+firebase.initializeApp(config);
+
 const rootRef = firebase.database().ref();
 
 
