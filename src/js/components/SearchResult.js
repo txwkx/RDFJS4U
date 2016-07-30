@@ -5,7 +5,7 @@ class SearchResult extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      isVisible: true,
+      isVisible: false,
     };
   }
 

@@ -20,7 +20,7 @@ class LibrariesTable extends React.Component {
 
   render() {
     const tableHead = this.props.theadList.map( thead => {
-      return <th key={thead}>{thead}</th>;
+      return <th key={thead.id}>{thead.title}</th>;
     });
 
     const tcontent = '';

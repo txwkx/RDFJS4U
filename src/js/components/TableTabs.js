@@ -4,7 +4,7 @@ import React from 'react';
 class TableTabs extends React.Component {
 
   render() {
-    let tabsList = this.props.tabsList.map ( tab => {
+    const tabsList = this.props.tabsList.map ( tab => {
       const className = (this.props.activeTab === tab.id) ? `active ${tab.colour}` : `${tab.colour}`;
       return <li role="tab"
             onClick={() => { this.props.setActiveTab(tab.id); }}

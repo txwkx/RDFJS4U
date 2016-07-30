@@ -5,18 +5,18 @@ class Slider extends React.Component {
 
   render(){
 
-    let label = <label>{this.props.label} ~ {this.props.val} {this.props.units}</label>;
+    let label = <label>{this.props.title} ~ {this.props.value} {this.props.units}</label>;
     let step = this.props.max / 10;
 
     return (
       <div class="filter">
         <p>{label} <i class={this.props.icon}></i>
-          <input ref='inp'
+          <input
           type='range'
           min={this.props.min}
           max={this.props.max}
           step={step}
-          onChange={this.props.update} />
+          onChange={e => this.props.onChange(e.target.value)} />
         </p>
       </div>
     );
