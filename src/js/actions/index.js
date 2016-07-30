@@ -9,7 +9,7 @@ const config = {
     apiKey: 'AIzaSyDm7TPKpzOPvcAgqwA4X5v0iTWN3wmam6o',
     authDomain: 'rdfjsapp.firebaseapp.com',
     databaseURL: 'https://rdfjsapp.firebaseio.com',
-    storageBucket: "rdfjsapp.appspot.com",
+    storageBucket: 'rdfjsapp.appspot.com'
   };
 firebase.initializeApp(config);
 
@@ -27,9 +27,9 @@ export function getTableTabs() {
   };
 }
 
-export function getTableHeaderList() {
+export function getTableHeaderList(index) {
   return (dispatch) => {
-    rootRef.child('theaderList').once('value', snap => {
+    rootRef.child('theaderList').child(index).once('value', snap => {
       dispatch({
         type: GET_TABLE_HEADER,
         payload: snap.val()
