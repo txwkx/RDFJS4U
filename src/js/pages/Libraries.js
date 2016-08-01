@@ -17,25 +17,15 @@ class Libraries extends React.Component {
     super(props);
     this.state = {
       pageTitle: 'Comparison of RDF JavaScript libraries',
-      searchResult: 2,
-      activeFiltersSet: 0,
-      theadList: [
-        'Library',
-        'License',
-        'Documentation',
-        'Latest update',
-        'Size',
-        'Link'
-      ],
-      tcontent: [],
-
+      searchResult: 0,
+      activeFiltersSet: 0
     };
   }
 
   componentWillMount() {
    this.props.getTableTabs();
    this.props.getFeatureSets();
-   //this.props.getTableHeaderList();
+   this.props.getTableHeaderList(this.state.activeFiltersSet);
   }
 
   componentDidUpdate(){
@@ -48,9 +38,15 @@ class Libraries extends React.Component {
 
   updateActiveFilter(newFilter){
     this.setState({activeFiltersSet: newFilter});
+    this.props.getTableHeaderList(newFilter);
   }
 
   render() {
+    const {fetchstatus} = this.props;
+    const isLoaded = Object.keys(fetchstatus).every(key => fetchstatus[key]);
+
+    if(!isLoaded) return (<div class='loader'></div>);
+
     return (
       <div id="wrapper">
 
@@ -68,9 +64,9 @@ class Libraries extends React.Component {
 
             <div class="row">
               <LibrariesTable
-                tabsList={this.props.libraries}
-                theadList={this.state.theadList}
-                tcontent={this.state.tcontent}
+                tabsList={this.props.tabledata.tabs}
+                theadList={this.props.tabledata.headers}
+                tcontent={this.props.tabledata.content}
                 setActiveFilter={this.updateActiveFilter.bind(this)}
                 activeFilter={this.state.activeFiltersSet}
                 />
@@ -82,8 +78,8 @@ class Libraries extends React.Component {
   }
 }
 
-function mapStateToProps({ libraries, features }) {
-  return { libraries, features };
-}
+/*function mapStateToProps({ state => state ) {
+  return { libraries, features, fetchstatus };
+}*/
 
-export default connect(mapStateToProps, actions)(Libraries);
+export default connect(state => state, actions)(Libraries);
