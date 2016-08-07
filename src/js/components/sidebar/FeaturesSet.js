@@ -6,46 +6,42 @@ import Checkbox from './Checkbox';
 import Dropdown from './Dropdown';
 import Slider from './Slider';
 
+const filtersHash = {
+  checkbox: Checkbox,
+  dropdown: Dropdown,
+  slider: Slider
+};
+
 class FeaturesSet extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      slider1: 0,
-    };
-    this.update = this.update.bind(this);
+    this.state = props.filters.reduce((obj, item) => {
+        obj[item.id] = item.max/2;
+        return obj;
+    }, {});
+    this.initState = this.state;
   }
 
-  update(e){
-    this.setState({
-      slider1: ReactDOM.findDOMNode(this.refs.slider1.refs.inp).value,
-    });
+  reset(){
+    this.setState(this.initState);
   }
 
   render() {
     const isActive = (this.props.isActive === true) ? 'active' : '';
     const setClass = isActive + ` features-set parsing box ${this.props.colour}`;
+    let {filters} = this.props;
 
-    const filters = this.props.filters.map(filter => {
-      switch (filter.type) {
-        case 'dropdown':
-          return <Dropdown title={filter.title} dropdownList={filter.dropdownList} />;
-        case 'slider':
-          const sliderId = `slider${filter.id}`;
-          return <Slider
-            ref={sliderId}
-            label={filter.title} units={filter.units}
-            min={filter.min} max={filter.max}
-            val={+this.state.slider1}
-            update={this.update}
-            icon={filter.icon}
-            />;
-        case 'checkbox':
-          return <Checkbox title={filter.title} icon={filter.icon} checked={false} />;
-        default:
-          break;
-      }
-
-    });
+    if(typeof filters !== 'undefined'){
+      filters = filters.map(item => {
+        const Filter = filtersHash[item.type];
+        return <Filter
+          key={item.id}
+          {...item}
+          value={this.state[item.id]}
+          onChange={value => this.setState({ [item.id]: value})}
+          />;
+      });
+    }
 
     return (
       <div class={setClass}>
