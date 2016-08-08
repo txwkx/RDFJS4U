@@ -27,8 +27,7 @@ class FeaturesSet extends React.Component {
   }
 
   render() {
-    const isActive = (this.props.isActive === true) ? 'active' : '';
-    const setClass = isActive + ` features-set parsing box ${this.props.colour}`;
+    const setClass = (this.props.isActive === true) ? `active ${this.props.colour}` : `${this.props.colour}`;
     let {filters} = this.props;
 
     if(typeof filters !== 'undefined'){
