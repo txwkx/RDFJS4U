@@ -1,7 +1,6 @@
 'use strict';
 import React from 'react';
 import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
 import _ from 'lodash';
 
 import * as actions from '../actions/index';
@@ -23,9 +22,9 @@ class Libraries extends React.Component {
   }
 
   componentWillMount() {
-   this.props.getTableTabs();
-   this.props.getFeatureSets();
-   this.props.getTableHeaderList(this.state.activeFiltersSet);
+    this.props.getTableTabs();
+    this.props.getFeatureSets();
+    this.props.getTableHeaderList(this.state.activeFiltersSet);
   }
 
   componentDidUpdate(){
@@ -53,6 +52,7 @@ class Libraries extends React.Component {
         <Sidebar
           features={this.props.features}
           activeFiltersSet={this.state.activeFiltersSet}
+          onReset={this.props.getFeatureSets}
           />
 
         <div id="page-content-wrapper">

@@ -1,6 +1,8 @@
 import { GET_TABLE_TABS, GET_TABLE_HEADER } from '../actions/index';
 
-export default function(state = {tabs: [], headers: [], content: []}, action) {
+const INITIAL_STATE = {tabs: [], headers: [], content: []};
+
+export default function(state = INITIAL_STATE, action) {
   switch (action.type) {
     case GET_TABLE_TABS:
       return {...state, tabs: action.payload};
