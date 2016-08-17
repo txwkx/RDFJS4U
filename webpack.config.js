@@ -2,6 +2,10 @@ var debug = process.env.NODE_ENV !== "production";
 var webpack = require('webpack');
 var path = require('path');
 
+const Dashboard = require('webpack-dashboard');
+const DashboardPlugin = require('webpack-dashboard/plugin');
+const dashboard = new Dashboard();
+
 module.exports = {
   context: path.join(__dirname, "src"),
   devtool: debug ? "inline-sourcemap" : null,
@@ -45,16 +49,20 @@ module.exports = {
     path: __dirname + "/src/",
     filename: "bundle.js"
   },
-  devServer: {
-    port: 3333,
-    contentBase: "src"
-  },
   eslint: {
     configFile: '.eslintrc'
   },
-  plugins: debug ? [] : [
+  plugins: debug ? [
+    new DashboardPlugin(dashboard.setData),
+  ] : [
     new webpack.optimize.DedupePlugin(),
     new webpack.optimize.OccurenceOrderPlugin(),
     new webpack.optimize.UglifyJsPlugin({ mangle: false, sourcemap: false }),
   ],
+  devServer: {
+    quiet: true,
+    historyApiFallback: true,
+    port: 3333,
+    contentBase: "src"
+  },
 };
