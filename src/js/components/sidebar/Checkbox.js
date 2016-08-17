@@ -4,13 +4,6 @@ import React from 'react';
 class Checkbox extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      checked: this.props.checked || false
-    };
-  }
-
-  handleChange(e){
-    this.setState({checked: !this.state.checked});
   }
 
   render() {
@@ -19,10 +12,9 @@ class Checkbox extends React.Component {
         <a class="checkbox">
           <label>
             <input type="checkbox"
-                   checked={this.state.checked}
-                   onChange={this.handleChange.bind(this)} />
+                   checked={this.props.value}
+                   onChange={e => this.props.onChange(!this.props.value)} />
                    {this.props.title}
-                   <i class={this.props.icon}></i>
           </label>
         </a>
       </div>

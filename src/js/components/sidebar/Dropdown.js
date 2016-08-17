@@ -6,10 +6,8 @@ const ddInstances = [];
 class Dropdown extends React.Component {
   constructor(props) {
     super(props);
-
     this.state = {
       isOpened: false,
-      title: this.props.title
     };
 
   }
@@ -34,9 +32,8 @@ class Dropdown extends React.Component {
 
   //Set the item value from the dropdown list to the initial default title
   assignFilter(val){
-    if(val != this.state.title){
-      const title = val;
-      this.setState({title});
+    if(val != this.props.value){
+      this.props.onChange(val);
     }
     this.close();
   }
@@ -58,7 +55,7 @@ class Dropdown extends React.Component {
         <button
           onClick={this.open.bind(this)}
           class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
-          {this.state.title} <span class="caret"></span>
+          {this.props.value} <span class="caret"></span>
         </button>
         <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
           {ddList}

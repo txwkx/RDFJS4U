@@ -16,7 +16,9 @@ class FeaturesSet extends React.Component {
   constructor(props) {
     super(props);
     this.state = props.filters.reduce((obj, item) => {
-        obj[item.id] = item.max/2;
+        if(item.type === 'slider'){ obj[item.id] = item.max/2;}
+        else if(item.type === 'dropdown'){ obj[item.id] = item.title;}
+        else if(item.type === 'checkbox'){ obj[item.id] = item.isChecked;}
         return obj;
     }, {});
     this.initState = this.state;
@@ -24,6 +26,7 @@ class FeaturesSet extends React.Component {
 
   reset(){
     this.setState(this.initState);
+    this.props.onReset();
   }
 
   render() {
@@ -44,7 +47,14 @@ class FeaturesSet extends React.Component {
 
     return (
       <div class={setClass}>
-        <h3>{this.props.title}</h3>
+        <div>
+          <h3>
+            {this.props.title}
+            <button class="btn-reset pull-right" onClick={this.reset.bind(this)}>Reset</button>
+          </h3>
+          <hr />
+        </div>
+
 
         {filters}
 
