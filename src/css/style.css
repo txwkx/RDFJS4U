@@ -1,7 +1,15 @@
 /* Typography Styles */
-body {color: #fff; padding-top: 51px; background-color: rgb(44, 62, 80);}
+body {
+  color: #fff;
+  padding-top: 51px;
+  background-color: rgb(44, 62, 80);
+  font-family: 'Roboto', sans-serif;
+}
 
-h1 {}
+h1 {
+  font-family: 'Rubik', sans-serif;
+  font-weight: bold;
+}
 h2 {
   text-align: center;
   font-size: 18px;
@@ -10,6 +18,8 @@ h3 {
   font-size: 16px;
   margin: 10px 0;
   padding: 0;
+  font-family: 'Rubik', sans-serif;
+  font-weight: bold;
 }
 
 hr {
