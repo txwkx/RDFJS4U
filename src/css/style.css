@@ -28,7 +28,7 @@ hr {
 }
 
 input:hover {cursor: pointer;}
-
+button:focus {outline:0;}
 
 p, .checkbox, .radio, .checkbox label, .radio label, ul, ol{margin: 0; padding: 0;}
 label {display: inline;}

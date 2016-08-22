@@ -11,20 +11,19 @@ class LibrariesTable extends React.Component {
     };
   }
 
-  updateActiveTab(activeTab){
-    if(activeTab != this.state.activeTab){
-      this.setState({activeTab});
-      this.props.setActiveFilter(activeTab);
+  setActiveTab(newTab){
+    if(newTab != this.state.activeTab){
+      this.setState({activeTab: newTab});
+      this.props.setActiveFilter(newTab);
     }
   }
 
   render() {
-    const tableHead = this.props.theadList.map( thead => {
+    const theaders = this.props.theaders.map( thead => {
       return <th key={thead.id}>{thead.title}</th>;
     });
 
-    const tcontent = '';
-    //const tcontent = this.props.tcontent.map();
+    const tcontent = this.props.tcontent;
 
     return (
       <div class="col-lg-12">
@@ -32,7 +31,7 @@ class LibrariesTable extends React.Component {
         <TableTabs
           tabsList={this.props.tabsList}
           activeTab={this.state.activeTab}
-          setActiveTab={this.updateActiveTab.bind(this)}
+          setActiveTab={this.setActiveTab.bind(this)}
           />
 
       <div class="tab-content" id="tabsContent">
@@ -40,11 +39,11 @@ class LibrariesTable extends React.Component {
           <table class="table table-bordered table-hover">
             <thead>
               <tr>
-                {tableHead}
+                {theaders}
               </tr>
             </thead>
             <tbody>
-                {tcontent}
+
             </tbody>
           </table>
         </div>

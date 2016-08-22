@@ -25,6 +25,7 @@ class Libraries extends React.Component {
     this.props.getTableTabs();
     this.props.getFeatureSets();
     this.props.getTableHeaderList(this.state.activeFiltersSet);
+    this.props.getTableContent(this.state.activeFiltersSet);
   }
 
   componentDidUpdate(){
@@ -35,9 +36,10 @@ class Libraries extends React.Component {
     //}
   }
 
-  updateActiveFilter(newFilter){
+  setActiveFilter(newFilter){
     this.setState({activeFiltersSet: newFilter});
     this.props.getTableHeaderList(newFilter);
+    //this.props.getTableContent(newFilter);
   }
 
   render() {
@@ -65,9 +67,9 @@ class Libraries extends React.Component {
             <div class="row">
               <LibrariesTable
                 tabsList={this.props.tabledata.tabs}
-                theadList={this.props.tabledata.headers}
+                theaders={this.props.tabledata.headers}
                 tcontent={this.props.tabledata.content}
-                setActiveFilter={this.updateActiveFilter.bind(this)}
+                setActiveFilter={this.setActiveFilter.bind(this)}
                 activeFilter={this.state.activeFiltersSet}
                 />
             </div>

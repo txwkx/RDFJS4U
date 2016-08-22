@@ -3,6 +3,7 @@ import _ from 'lodash';
 
 export const GET_TABLE_TABS = 'GET_TABLE_TABS';
 export const GET_TABLE_HEADER = 'GET_TABLE_HEADER';
+export const GET_TABLE_CONTENT = 'GET_TABLE_CONTENT';
 export const GET_FEATURE_SETS = 'GET_FEATURE_SETS';
 
 const config = {
@@ -43,6 +44,17 @@ export function getFeatureSets(){
     rootRef.child('featuresSets').once('value', snap => {
       dispatch({
         type: GET_FEATURE_SETS,
+        payload: snap.val()
+      });
+    });
+  };
+}
+
+export function getTableContent(index){
+  return (dispatch) => {
+    rootRef.child('tcontent').child(index).on('value', snap => {
+      dispatch({
+        type: GET_TABLE_CONTENT,
         payload: snap.val()
       });
     });
