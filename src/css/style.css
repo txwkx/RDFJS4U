@@ -259,24 +259,45 @@ label {display: inline;}
 .box.active { opacity: 1;  pointer-events: all;}
 
 .red {
+  border: 3px solid rgb(192, 57, 43) !important;
+}
+.red.active {
   background-color: rgb(192, 57, 43);
 }
 .orange {
+  border: 3px solid rgb(211, 84, 0) !important;
+}
+.orange.active {
   background-color: rgb(211, 84, 0);
 }
 .yellow {
+  border: 3px solid rgb(243, 156, 18) !important;
+}
+.yellow.active {
   background-color: rgb(243, 156, 18);
 }
 .green {
+  border: 3px solid rgb(22, 160, 133) !important;
+}
+.green.active {
   background-color: rgb(22, 160, 133);
 }
 .blue {
-  background-color: rgb(41, 128, 185)
+  border: 3px solid rgb(41, 128, 185) !important;
+}
+.blue.active {
+  background-color: rgb(41, 128, 185);
 }
 .purple {
+  border: 3px solid rgb(142, 68, 173) !important;
+}
+.purple.active {
   background-color: rgb(142, 68, 173);
 }
 .grey {
+  border: 3px solid rgb(189, 195, 199) !important;
+}
+.grey.active {
   background-color: rgb(189, 195, 199);
 }
 
