@@ -5,13 +5,13 @@ class TableTabs extends React.Component {
 
   render() {
     const tabsList = this.props.tabsList.map ( tab => {
-      const className = (this.props.activeTab === tab.id) ? `active ${tab.colour}` : `${tab.colour}`;
+      const className = (this.props.activeTab === tab.title) ? `active ${tab.colour}` : `${tab.colour}`;
       return <li role="tab"
-            onClick={() => { this.props.setActiveTab(tab.id); }}
+            onClick={() => { this.props.setActiveTab(tab.title); }}
             key={tab.id}
             ref={'tab'+tab.id}
             class={className}>
-            <a href="#">{tab.title}</a>
+            <a href="#">{tab.name}</a>
             </li>;
     });
 

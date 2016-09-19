@@ -1,5 +1,6 @@
 'use strict';
 import React from 'react';
+import { Table } from 'reactabular';
 
 import TableTabs from '../components/TableTabs';
 
@@ -19,11 +20,14 @@ class LibrariesTable extends React.Component {
   }
 
   render() {
-    const theaders = this.props.theaders.map( thead => {
-      return <th key={thead.id}>{thead.title}</th>;
-    });
+    const linksColumn = {
+      property: 'link',
+      header: { label: 'Link', props: { style: { width: 70 }} },
+      cell: { format: (link) => <a href={link} target='_blank'>Link <i class='fa fa-link'></i></a>}
+    };
 
-    const tcontent = this.props.tcontent;
+    const rows = this.props.tcontent;
+    const columns = [...this.props.theaders, linksColumn];
 
     return (
       <div class="col-lg-12">
@@ -36,16 +40,14 @@ class LibrariesTable extends React.Component {
 
       <div class="tab-content" id="tabsContent">
         <div class="table-responsive">
-          <table class="table table-bordered table-hover">
-            <thead>
-              <tr>
-                {theaders}
-              </tr>
-            </thead>
-            <tbody>
+          <Table.Provider class="pure-table pure-table-striped table table-bordered table-hover"
+            columns={columns}>
+            <Table.Header />
 
-            </tbody>
-          </table>
+            <Table.Body
+                rows={rows}
+                rowKey="id" />
+          </Table.Provider>
         </div>
       </div>
     </div>

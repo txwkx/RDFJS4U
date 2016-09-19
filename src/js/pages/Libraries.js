@@ -17,7 +17,7 @@ class Libraries extends React.Component {
     this.state = {
       pageTitle: 'Comparison of RDF JavaScript libraries',
       searchResult: 0,
-      activeFiltersSet: 0
+      activeFiltersSet: 'general'
     };
   }
 
@@ -29,21 +29,24 @@ class Libraries extends React.Component {
   }
 
   componentDidUpdate(){
-    //Change to libcount, not tabs
-    //const searchResult = this.props.libraries.length;
-    //if(this.state.searchResult != searchResult){
-    //  this.setState({searchResult});
-    //}
+    const searchResult = this.props.tabledata.content.length;
+    if(this.state.searchResult != searchResult){
+      this.setState({searchResult});
+    }
   }
 
   setActiveFilter(newFilter){
     this.setState({activeFiltersSet: newFilter});
     this.props.getTableHeaderList(newFilter);
-    //this.props.getTableContent(newFilter);
+    this.props.getTableContent(newFilter);
+  }
+
+  applyFilters(query){
+    //this.props.queryTable(this.state.activeFiltersSet, query);
   }
 
   render() {
-    const {fetchstatus} = this.props;
+    const { fetchstatus } = this.props;
     const isLoaded = Object.keys(fetchstatus).every(key => fetchstatus[key]);
 
     if(!isLoaded) return (<div class='loader'></div>);
@@ -55,6 +58,7 @@ class Libraries extends React.Component {
           features={this.props.features}
           activeFiltersSet={this.state.activeFiltersSet}
           onReset={this.props.getFeatureSets}
+          applyFilters={this.applyFilters.bind(this)}
           />
 
         <div id="page-content-wrapper">

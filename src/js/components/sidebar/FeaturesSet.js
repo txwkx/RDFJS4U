@@ -16,7 +16,7 @@ class FeaturesSet extends React.Component {
   constructor(props) {
     super(props);
     this.state = props.filters.reduce((obj, item) => {
-        if(item.type === 'slider'){ obj[item.id] = item.max/2;}
+        if(item.type === 'slider'){ obj[item.id] = item.default;}
         else if(item.type === 'dropdown'){ obj[item.id] = item.title;}
         else if(item.type === 'checkbox'){ obj[item.id] = item.isChecked;}
         return obj;
@@ -54,7 +54,6 @@ class FeaturesSet extends React.Component {
           </h3>
           <hr />
         </div>
-
 
         {filters}
 

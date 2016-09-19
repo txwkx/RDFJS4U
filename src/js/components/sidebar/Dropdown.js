@@ -17,7 +17,7 @@ class Dropdown extends React.Component {
   }
 
   componentWillUnmount() {
-      ddInstances.splice(ddInstances.indexOf(this), 1);
+    ddInstances.splice(ddInstances.indexOf(this), 1);
   }
 
   open(e){
