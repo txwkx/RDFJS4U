@@ -7,9 +7,9 @@ const Dashboard = require('webpack-dashboard');
 const DashboardPlugin = require('webpack-dashboard/plugin');
 
 module.exports = {
-  context: path.join(__dirname, 'src'),
-  devtool: debug ? 'inline-sourcemap' : 'cheap-module-source-map',
-  entry: './js/client.js',
+  context: path.join(__dirname, ''),
+  devtool: debug ? 'inline-sourcemap' : '',
+  entry: './src/js/client.js',
   module: {
     preLoaders: [
       {
@@ -46,7 +46,7 @@ module.exports = {
     ]
   },
   output: {
-    path: __dirname + "/build/",
+    path: __dirname + "/",
     filename: "bundle.js"
   },
   eslint: {
@@ -67,7 +67,6 @@ module.exports = {
   devServer: {
     quiet: true,
     historyApiFallback: true,
-    port: 3333,
-    contentBase: 'src'
+    port: 3333
   },
 };
