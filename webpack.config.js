@@ -1,15 +1,15 @@
-var debug = process.env.NODE_ENV !== "production";
-var webpack = require('webpack');
-var path = require('path');
+const debug = process.env.NODE_ENV !== 'production';
+
+const webpack = require('webpack');
+const path = require('path');
 
 const Dashboard = require('webpack-dashboard');
 const DashboardPlugin = require('webpack-dashboard/plugin');
-const dashboard = new Dashboard();
 
 module.exports = {
-  context: path.join(__dirname, "src"),
-  devtool: debug ? "inline-sourcemap" : null,
-  entry: "./js/client.js",
+  context: path.join(__dirname, 'src'),
+  devtool: debug ? 'inline-sourcemap' : 'cheap-module-source-map',
+  entry: './js/client.js',
   module: {
     preLoaders: [
       {
@@ -46,23 +46,28 @@ module.exports = {
     ]
   },
   output: {
-    path: __dirname + "/src/",
+    path: __dirname + "/build/",
     filename: "bundle.js"
   },
   eslint: {
     configFile: '.eslintrc'
   },
   plugins: debug ? [
-    new DashboardPlugin(dashboard.setData),
+    new DashboardPlugin(new Dashboard().setData)
   ] : [
+    new webpack.DefinePlugin({
+      'process.env': {
+        'NODE_ENV': JSON.stringify('production')
+      }
+    }),
     new webpack.optimize.DedupePlugin(),
     new webpack.optimize.OccurenceOrderPlugin(),
-    new webpack.optimize.UglifyJsPlugin({ mangle: false, sourcemap: false }),
+    new webpack.optimize.UglifyJsPlugin({ mangle: false, sourcemap: false, compress: { warnings: true } }),
   ],
   devServer: {
     quiet: true,
     historyApiFallback: true,
     port: 3333,
-    contentBase: "src"
+    contentBase: 'src'
   },
 };
