@@ -5,6 +5,7 @@ export const GET_TABLE_TABS = 'GET_TABLE_TABS';
 export const GET_TABLE_HEADER = 'GET_TABLE_HEADER';
 export const GET_TABLE_CONTENT = 'GET_TABLE_CONTENT';
 export const GET_FEATURE_SETS = 'GET_FEATURE_SETS';
+export const QUERY_TABLE = 'QUERY_TABLE';
 
 const config = {
     apiKey: 'AIzaSyDm7TPKpzOPvcAgqwA4X5v0iTWN3wmam6o',
@@ -52,10 +53,33 @@ export function getFeatureSets(){
 
 export function getTableContent(index){
   return (dispatch) => {
-    rootRef.child('tcontent').child(index).on('value', snap => {
+    rootRef.child(`tcontent/${index}`).on('value', snap => {
       dispatch({
         type: GET_TABLE_CONTENT,
         payload: snap.val()
+      });
+    });
+  };
+}
+
+export function queryTable(index, query){
+  return (dispatch) => {
+    rootRef.child(`tcontent/${index}`).on('value', snap => {
+      const queried_libs = snap.val();
+
+      //TODO reduce the amount of iterations
+      Object.keys(query).map(key => {
+        const value = query[key];
+        queried_libs.map(lib => {
+          lib[key] === value ? lib['passed'] = lib['passed'] && true : lib['passed'] = false;
+        });
+      });
+
+      const filtered_libs = queried_libs.filter(lib => lib['passed'] === true);
+
+      dispatch({
+        type: QUERY_TABLE,
+        payload: filtered_libs
       });
     });
   };
