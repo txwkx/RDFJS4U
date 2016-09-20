@@ -1,4 +1,3 @@
-'use strict';
 import React from 'react';
 
 import PageTitle from '../components/layout/PageTitle';
@@ -7,8 +6,14 @@ class Documentation extends React.Component {
 
   render() {
     return (
-      <div>
-        <PageTitle pageTitle={'Documentation'} />
+      <div id='page-content-wrapper'>
+        <div class='container-fluid'>
+          <div class='row'>
+            <div class='col-lg-12'>
+              <PageTitle pageTitle={'Documentation'} />
+            </div>
+          </div>
+        </div>
       </div>
     );
   }
