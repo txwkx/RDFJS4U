@@ -8,6 +8,7 @@ import PageTitle from '../components/layout/PageTitle';
 import Sidebar from '../components/layout/Sidebar';
 import SearchResult from '../components/SearchResult';
 
+const queryMap = new Map();
 
 class Libraries extends React.Component {
   constructor(props) {
@@ -37,10 +38,15 @@ class Libraries extends React.Component {
     this.setState({activeFiltersSet: newFilter});
     this.props.getTableHeaderList(newFilter);
     this.props.getTableContent(newFilter);
+    queryMap.clear();
   }
 
-  applyFilters(query){
-    //this.props.queryTable(this.state.activeFiltersSet, query);
+  updateQueryMap(key, value){
+    queryMap.set(key, value);
+  }
+
+  applyFilters(){
+    this.props.queryTable(this.state.activeFiltersSet, queryMap);
   }
 
   render() {
@@ -56,6 +62,7 @@ class Libraries extends React.Component {
           features={this.props.features}
           activeFiltersSet={this.state.activeFiltersSet}
           onReset={this.props.getFeatureSets}
+          onChange={this.updateQueryMap.bind(this)}
           applyFilters={this.applyFilters.bind(this)}
           />
 
