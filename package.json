@@ -50,6 +50,7 @@
     "lodash": "^4.15.0",
     "react": "^15.3.1",
     "react-dom": "^15.3.1",
+    "redux-logger": "^2.6.1",
     "react-redux": "^4.4.5",
     "react-router": "^2.8.1",
     "reactabular": "^4.0.0",
