@@ -67,15 +67,9 @@ export function queryTable(index, query){
     rootRef.child(`tcontent/${index}`).on('value', snap => {
       const queried_libs = snap.val();
 
-      //TODO reduce the amount of iterations
-      Object.keys(query).map(key => {
-        const value = query[key];
-        queried_libs.map(lib => {
-          lib[key] === value ? lib['passed'] = lib['passed'] && true : lib['passed'] = false;
-        });
+      const filtered_libs = queried_libs.filter(lib => {
+        return Array.from(query.entries()).every(([key, value]) => lib[key].indexOf(value) !== -1);
       });
-
-      const filtered_libs = queried_libs.filter(lib => lib['passed'] === true);
 
       dispatch({
         type: QUERY_TABLE,
