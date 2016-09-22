@@ -12,17 +12,23 @@ class Sidebar extends React.Component {
     this.props.applyFilters();
   }
 
+  shouldComponentUpdate(nextProps, nextState) {
+    return nextProps.activeFiltersSet != this.props.activeFiltersSet;
+  }
+
   render() {
     const featuresSets = this.props.features.map(item => {
       const isActive = (item.ref === this.props.activeFiltersSet) ? true : false;
 
       return <FeaturesSet
-              key={item.title}
+              key={item.ref}
               title={item.title}
               colour={item.colour}
               filters={item.filters}
               isActive={isActive}
-              onReset={this.props.onReset} />;
+              onReset={this.props.onReset}
+              onChange={this.props.onChange}
+               />;
     });
 
     return (
