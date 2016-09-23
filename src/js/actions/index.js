@@ -68,7 +68,9 @@ export function queryTable(index, query){
       const queried_libs = snap.val();
 
       const filtered_libs = queried_libs.filter(lib => {
-        return Array.from(query.entries()).every(([key, value]) => lib[key].indexOf(value) !== -1);
+        return Array.from(query.entries()).every(([key, value]) => {
+          return typeof lib[key] === 'boolean' ? lib[key] === value : lib[key].indexOf(value) !== -1;
+        });
       });
 
       dispatch({
