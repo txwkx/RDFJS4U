@@ -13,7 +13,7 @@ class Sidebar extends React.Component {
   }
 
   shouldComponentUpdate(nextProps, nextState) {
-    return nextProps.activeFiltersSet != this.props.activeFiltersSet;
+    return nextProps.activeFiltersSet != this.props.activeFiltersSet || nextProps.querySize != this.props.querySize;
   }
 
   render() {
@@ -35,7 +35,9 @@ class Sidebar extends React.Component {
       <div id="sidebar-wrapper">
         <h2>FILTERS</h2>
         <div class='features-set filter-buttons'>
-          <button type="button" class="btn btn-success btn-block" onClick={this.applyFilters.bind(this)}>Apply</button>
+          <button type="button"
+            class={`btn btn-success btn-block ${this.props.querySize > 0 ? 'active' : 'disabled'}`}
+            onClick={this.applyFilters.bind(this)}>Apply</button>
         </div>
 
         {featuresSets}
