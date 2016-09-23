@@ -54,7 +54,7 @@ class Dropdown extends React.Component {
       <div class={ddClass}>
         <button
           onClick={this.open.bind(this)}
-          class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+          class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">
           {this.props.value} <span class="caret"></span>
         </button>
         <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">

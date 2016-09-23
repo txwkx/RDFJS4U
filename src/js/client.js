@@ -12,7 +12,7 @@ import Layout from './pages/Layout';
 import Libraries from './pages/Libraries';
 import reducers from './reducers';
 
-const createStoreWithMiddleware = applyMiddleware(reduxThunk, createLogger({duration: true}))(createStore);
+const createStoreWithMiddleware = applyMiddleware(reduxThunk)(createStore);
 
 const app = document.getElementById('app');
 
