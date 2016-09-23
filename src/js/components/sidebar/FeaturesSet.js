@@ -49,7 +49,7 @@ class FeaturesSet extends React.Component {
     }
 
     return (
-      <div class={`${(this.props.isActive === true) ? `active` : `box`} ${this.props.colour}`}>
+      <div class={`${(this.props.isActive === true) ? 'active' : 'box'} ${this.props.colour}`}>
         <div>
           <h3>
             {this.props.title}

@@ -36,7 +36,7 @@ class Sidebar extends React.Component {
         <h2>FILTERS</h2>
         <div class='features-set filter-buttons'>
           <button type="button"
-            class={`btn btn-success btn-block ${this.props.querySize > 0 ? 'active' : 'disabled'}`}
+            class={`btn btn-block btn-green ${this.props.querySize > 0 ? 'active' : 'disabled'}`}
             onClick={this.applyFilters.bind(this)}>Apply</button>
         </div>
 

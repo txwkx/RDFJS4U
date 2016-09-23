@@ -19,7 +19,6 @@ h3 {
   margin: 10px 0;
   padding: 0;
   font-family: 'Rubik', sans-serif;
-  font-weight: bold;
 }
 
 hr {
@@ -259,10 +258,10 @@ label {display: inline;}
 .box.active { opacity: 1;  pointer-events: all;}
 
 .red {
-  border: 3px solid rgb(192, 57, 43) !important;
+  border: 3px solid rgb(231, 76, 60) !important;
 }
 .red.active {
-  background-color: rgb(192, 57, 43);
+  background-color: rgb(231, 76, 60);
 }
 .orange {
   border: 3px solid rgb(211, 84, 0) !important;
@@ -295,16 +294,15 @@ label {display: inline;}
   background-color: rgb(142, 68, 173);
 }
 .grey {
-  border: 3px solid rgb(189, 195, 199) !important;
+  border: 3px solid rgb(149, 165, 166) !important;
 }
 .grey.active {
-  background-color: rgb(189, 195, 199);
+  background-color: rgb(149, 165, 166);
 }
 
-/* ABOUT PAGE */
-.member .photo {
-  max-width: 270px;
-  max-height: 200px;
+.btn-green {
+  background-color: rgb(22, 160, 133);
+}
 
 .alert-danger {
   background-color: rgb(231, 76, 60);
