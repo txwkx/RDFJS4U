@@ -1,7 +1,5 @@
-'use strict';
 import React from 'react';
 import { connect } from 'react-redux';
-import _ from 'lodash';
 
 import * as actions from '../actions/index';
 
@@ -10,6 +8,7 @@ import PageTitle from '../components/layout/PageTitle';
 import Sidebar from '../components/layout/Sidebar';
 import SearchResult from '../components/SearchResult';
 
+const queryMap = new Map();
 
 class Libraries extends React.Component {
   constructor(props) {
@@ -17,32 +16,45 @@ class Libraries extends React.Component {
     this.state = {
       pageTitle: 'Comparison of RDF JavaScript libraries',
       searchResult: 0,
-      activeFiltersSet: 'general'
+      activeFiltersSet: 'general',
+      querySize: 0
     };
   }
 
   componentWillMount() {
     this.props.getTableTabs();
     this.props.getFeatureSets();
-    this.props.getTableHeaderList(this.state.activeFiltersSet);
-    this.props.getTableContent(this.state.activeFiltersSet);
+    this.updateTableData(this.state.activeFiltersSet);
   }
 
   componentDidUpdate(){
     const searchResult = this.props.tabledata.content.length;
-    if(this.state.searchResult != searchResult){
-      this.setState({searchResult});
-    }
+    if(this.state.searchResult != searchResult) this.setState({searchResult});
   }
 
-  setActiveFilter(newFilter){
-    this.setState({activeFiltersSet: newFilter});
-    this.props.getTableHeaderList(newFilter);
-    this.props.getTableContent(newFilter);
+  setActiveFilter(activeFiltersSet){
+    this.setState({activeFiltersSet});
+    this.updateTableData(activeFiltersSet);
+    this.resetFilters();
   }
 
-  applyFilters(query){
-    //this.props.queryTable(this.state.activeFiltersSet, query);
+  updateTableData(filterSet){
+    this.props.getTableHeaderList(filterSet);
+    this.props.getTableContent(filterSet);
+  }
+
+  resetFilters(){
+    queryMap.clear();
+    this.setState({querySize: queryMap.size});
+  }
+
+  updateQueryMap(key, value){
+    queryMap.set(key, value);
+    this.setState({querySize: queryMap.size});
+  }
+
+  applyFilters(){
+    this.props.queryTable(this.state.activeFiltersSet, queryMap);
   }
 
   render() {
@@ -56,8 +68,10 @@ class Libraries extends React.Component {
 
         <Sidebar
           features={this.props.features}
+          querySize={this.state.querySize}
           activeFiltersSet={this.state.activeFiltersSet}
-          onReset={this.props.getFeatureSets}
+          onReset={this.resetFilters.bind(this)}
+          onChange={this.updateQueryMap.bind(this)}
           applyFilters={this.applyFilters.bind(this)}
           />
 

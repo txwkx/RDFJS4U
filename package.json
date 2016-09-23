@@ -1,6 +1,6 @@
 {
   "name": "rdfjs4u",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "Online tool helping you pick a suitable RDF JavaScript library",
   "main": "index.js",
   "scripts": {
@@ -40,7 +40,6 @@
     "node-sass": "^3.10.0",
     "sass-loader": "^4.0.2",
     "style-loader": "^0.13.1",
-    "url-loader": "^0.5.7",
     "webpack": "^1.13.2",
     "webpack-dashboard": "0.1.8",
     "webpack-dev-server": "^1.15.2"
@@ -51,6 +50,7 @@
     "lodash": "^4.15.0",
     "react": "^15.3.1",
     "react-dom": "^15.3.1",
+    "redux-logger": "^2.6.1",
     "react-redux": "^4.4.5",
     "react-router": "^2.8.1",
     "reactabular": "^4.0.0",
