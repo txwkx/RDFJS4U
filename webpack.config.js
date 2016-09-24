@@ -26,7 +26,7 @@ module.exports = {
       {
         test: /\.jsx?$/,
         exclude: /node_modules/,
-        loader: 'babel-loader',
+        loader: 'babel',
         query: {
           presets: ['es2015', 'react', 'stage-0'],
           plugins: ['react-html-attrs', 'transform-class-properties', 'transform-decorators-legacy'],
@@ -43,6 +43,14 @@ module.exports = {
         loader: 'style!css'
       }
     ]
+  },
+  externals: {
+    'react/lib/ExecutionEnvironment': true,
+    'react/lib/ReactContext': true,
+    'react/addons': true
+  },
+  resolve: {
+    extensions: ['', '.js'],
   },
   eslint: {
     configFile: '.eslintrc'
