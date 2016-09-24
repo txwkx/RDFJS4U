@@ -2,8 +2,6 @@ import React from 'react';
 
 import PageTitle from '../components/layout/PageTitle';
 
-require('../../css/bootstrap-social.css');
-
 class About extends React.Component {
 
   render() {
@@ -11,7 +9,7 @@ class About extends React.Component {
       <div id='page-content-wrapper'>
         <div class='container-fluid'>
           <div class='row'>
-            <div class='col-lg-12'>
+            <div class='about col-lg-12'>
               <PageTitle pageTitle={'Project'} />
               <p>Insert a brief description about the project</p>
               <p>Enterprise Information Systems Group at the University of Bonn @ 2016</p>

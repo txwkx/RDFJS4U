@@ -9,7 +9,7 @@ class Documentation extends React.Component {
       <div id='page-content-wrapper'>
         <div class='container-fluid'>
           <div class='row'>
-            <div class='col-lg-12'>
+            <div class='documentation col-lg-12'>
               <PageTitle pageTitle={'Documentation'} />
             </div>
           </div>

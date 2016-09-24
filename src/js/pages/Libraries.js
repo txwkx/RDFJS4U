@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import * as actions from '../actions/index';
@@ -10,7 +10,7 @@ import SearchResult from '../components/SearchResult';
 
 const queryMap = new Map();
 
-class Libraries extends React.Component {
+export class Libraries extends Component {
   constructor(props) {
     super(props);
     this.state = {
