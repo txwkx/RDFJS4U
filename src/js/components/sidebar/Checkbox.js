@@ -1,26 +1,26 @@
-'use strict';
 import React from 'react';
 
-class Checkbox extends React.Component {
-  constructor(props) {
-    super(props);
-  }
+const Checkbox = ({value, title, onChange}) => {
 
-  render() {
     return (
       <div class='filter'>
         <a class="checkbox">
           <label>
             <input type="checkbox"
-                   checked={this.props.value}
-                   onChange={e => this.props.onChange(!this.props.value)} />
-                   {this.props.title}
+                   checked={value}
+                   onChange={e => onChange(!value)} />
+                   {title}
           </label>
         </a>
       </div>
     );
-  }
 
-}
+};
+
+Checkbox.propTypes = {
+  value: React.PropTypes.bool.isRequired,
+  title: React.PropTypes.string.isRequired,
+  onChange: React.PropTypes.func
+};
 
 export default Checkbox;
