@@ -3,10 +3,10 @@ import { connect } from 'react-redux';
 
 import * as actions from '../actions/index';
 
-import LibrariesTable from '../components/LibrariesTable';
+import LibrariesTable from '../components/table/LibrariesTable';
 import PageTitle from '../components/layout/PageTitle';
 import Sidebar from '../components/layout/Sidebar';
-import SearchResult from '../components/SearchResult';
+import SearchResult from '../components/table/SearchResult';
 
 const queryMap = new Map();
 
