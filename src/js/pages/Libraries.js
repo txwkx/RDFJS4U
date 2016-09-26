@@ -17,7 +17,8 @@ export class Libraries extends Component {
       pageTitle: 'Comparison of RDF JavaScript libraries',
       searchResult: 0,
       activeFiltersSet: 'general',
-      querySize: 0
+      querySize: 0,
+      isVisibleSearch: true
     };
   }
 
@@ -60,6 +61,11 @@ export class Libraries extends Component {
 
   applyFilters(){
     this.props.queryTable(this.state.activeFiltersSet, queryMap);
+    this.setState({isVisibleSearch: true});
+  }
+
+  hideSearch(){
+    this.setState({isVisibleSearch: false});
   }
 
   render() {
@@ -85,7 +91,11 @@ export class Libraries extends Component {
 
             <PageTitle pageTitle={this.state.pageTitle} />
 
-            <SearchResult results={this.state.searchResult} />
+            <SearchResult
+              results={this.state.searchResult}
+              isVisible={this.state.isVisibleSearch}
+              hideSearch={this.hideSearch.bind(this)}
+              />
 
             <div class="row">
               <LibrariesTable
