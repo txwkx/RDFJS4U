@@ -15,8 +15,8 @@ class FeaturesSet extends React.Component {
   constructor(props) {
     super(props);
     this.state = props.filters.reduce((obj, item) => {
-        if(item.type === 'dropdown'){ obj[item.ref] = item.title;}
-        else if(item.type === 'checkbox'){ obj[item.ref] = item.isChecked;}
+        if(item.type === 'dropdown'){ obj[item.term] = item.title;}
+        else if(item.type === 'checkbox'){ obj[item.term] = item.isChecked;}
         return obj;
     }, {});
     this.initState = this.state;
@@ -28,8 +28,8 @@ class FeaturesSet extends React.Component {
   }
 
   onChange(item, value){
-    this.setState({ [item.ref]: value});
-    this.props.onChange(item.ref, value);
+    this.setState({ [item.term]: value});
+    this.props.onChange(item.term, value);
   }
 
   render() {
@@ -41,7 +41,7 @@ class FeaturesSet extends React.Component {
         return <Filter
           key={item.id}
           {...item}
-          value={this.state[item.ref]}
+          value={this.state[item.term]}
           onChange={this.onChange.bind(this, item)}
           />;
       });
