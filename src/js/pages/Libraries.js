@@ -32,24 +32,29 @@ export class Libraries extends Component {
     if(this.state.searchResult != searchResult) this.setState({searchResult});
   }
 
-  setActiveFilter(activeFiltersSet){
-    this.setState({activeFiltersSet});
-    this.updateTableData(activeFiltersSet);
-    this.resetFilters();
-  }
-
   updateTableData(filterSet){
     this.props.getTableHeaderList(filterSet);
     this.props.getTableContent(filterSet);
   }
 
+  setActiveFilter(activeFiltersSet){
+    this.setState({activeFiltersSet});
+    this.updateTableData(activeFiltersSet);
+    this.clearQueryMap();
+  }
+
   resetFilters(){
-    queryMap.clear();
-    this.setState({querySize: queryMap.size});
+    this.clearQueryMap();
+    this.applyFilters();
   }
 
   updateQueryMap(key, value){
     queryMap.set(key, value);
+    this.setState({querySize: queryMap.size});
+  }
+
+  clearQueryMap(){
+    queryMap.clear();
     this.setState({querySize: queryMap.size});
   }
 
