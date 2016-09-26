@@ -1,7 +1,7 @@
 import React from 'react';
 import { Table } from 'reactabular';
 
-import TableTabs from '../components/TableTabs';
+import TableTabs from './TableTabs';
 
 class LibrariesTable extends React.Component {
   constructor(props) {

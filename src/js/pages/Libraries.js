@@ -1,23 +1,24 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 import * as actions from '../actions/index';
 
-import LibrariesTable from '../components/LibrariesTable';
+import LibrariesTable from '../components/table/LibrariesTable';
 import PageTitle from '../components/layout/PageTitle';
 import Sidebar from '../components/layout/Sidebar';
-import SearchResult from '../components/SearchResult';
+import SearchResult from '../components/table/SearchResult';
 
 const queryMap = new Map();
 
-class Libraries extends React.Component {
+export class Libraries extends Component {
   constructor(props) {
     super(props);
     this.state = {
       pageTitle: 'Comparison of RDF JavaScript libraries',
       searchResult: 0,
       activeFiltersSet: 'general',
-      querySize: 0
+      querySize: 0,
+      isVisibleSearch: true
     };
   }
 
@@ -32,20 +33,20 @@ class Libraries extends React.Component {
     if(this.state.searchResult != searchResult) this.setState({searchResult});
   }
 
-  setActiveFilter(activeFiltersSet){
-    this.setState({activeFiltersSet});
-    this.updateTableData(activeFiltersSet);
-    this.resetFilters();
-  }
-
   updateTableData(filterSet){
     this.props.getTableHeaderList(filterSet);
     this.props.getTableContent(filterSet);
   }
 
+  setActiveFilter(activeFiltersSet){
+    this.setState({activeFiltersSet});
+    this.updateTableData(activeFiltersSet);
+    this.clearQueryMap();
+  }
+
   resetFilters(){
-    queryMap.clear();
-    this.setState({querySize: queryMap.size});
+    this.clearQueryMap();
+    this.applyFilters();
   }
 
   updateQueryMap(key, value){
@@ -53,8 +54,18 @@ class Libraries extends React.Component {
     this.setState({querySize: queryMap.size});
   }
 
+  clearQueryMap(){
+    queryMap.clear();
+    this.setState({querySize: queryMap.size});
+  }
+
   applyFilters(){
     this.props.queryTable(this.state.activeFiltersSet, queryMap);
+    this.setState({isVisibleSearch: true});
+  }
+
+  hideSearch(){
+    this.setState({isVisibleSearch: false});
   }
 
   render() {
@@ -80,7 +91,11 @@ class Libraries extends React.Component {
 
             <PageTitle pageTitle={this.state.pageTitle} />
 
-            <SearchResult results={this.state.searchResult} />
+            <SearchResult
+              results={this.state.searchResult}
+              isVisible={this.state.isVisibleSearch}
+              hideSearch={this.hideSearch.bind(this)}
+              />
 
             <div class="row">
               <LibrariesTable

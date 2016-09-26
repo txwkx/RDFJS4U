@@ -10,7 +10,7 @@ class Layout extends React.Component {
     return (
       <div>
         <Header location={location} />
-        <div class='col-lg-12'>
+        <div class='layout col-lg-12'>
           {this.props.children}
         </div>
       </div>

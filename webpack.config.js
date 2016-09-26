@@ -8,8 +8,12 @@ const DashboardPlugin = require('webpack-dashboard/plugin');
 
 module.exports = {
   context: path.join(__dirname, ''),
-  devtool: debug ? 'inline-sourcemap' : '',
+  devtool: debug ? 'cheap-module-eval-source-map' : '',
   entry: './src/js/client.js',
+  output: {
+    filename: "bundle.js",
+    path: __dirname + "/"
+  },
   module: {
     preLoaders: [
       {
@@ -22,7 +26,7 @@ module.exports = {
       {
         test: /\.jsx?$/,
         exclude: /node_modules/,
-        loader: 'babel-loader',
+        loader: 'babel',
         query: {
           presets: ['es2015', 'react', 'stage-0'],
           plugins: ['react-html-attrs', 'transform-class-properties', 'transform-decorators-legacy'],
@@ -40,9 +44,13 @@ module.exports = {
       }
     ]
   },
-  output: {
-    path: __dirname + "/",
-    filename: "bundle.js"
+  externals: {
+    'react/lib/ExecutionEnvironment': true,
+    'react/lib/ReactContext': true,
+    'react/addons': true
+  },
+  resolve: {
+    extensions: ['', '.js'],
   },
   eslint: {
     configFile: '.eslintrc'
@@ -52,12 +60,12 @@ module.exports = {
   ] : [
     new webpack.DefinePlugin({
       'process.env': {
-        'NODE_ENV': JSON.stringify('production')
+        NODE_ENV: '"production"'
       }
     }),
     new webpack.optimize.DedupePlugin(),
     new webpack.optimize.OccurenceOrderPlugin(),
-    new webpack.optimize.UglifyJsPlugin({ mangle: false, sourcemap: false, compress: { warnings: true } }),
+    new webpack.optimize.UglifyJsPlugin({ mangle: false, sourcemap: false, compress: { screw_ie8: true, warnings: false } }),
   ],
   devServer: {
     quiet: true,

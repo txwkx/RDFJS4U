@@ -1,9 +1,8 @@
-'use strict';
-import React from 'react';
+import React, { Component } from 'react';
 
 const ddInstances = [];
 
-class Dropdown extends React.Component {
+class Dropdown extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -64,6 +63,11 @@ class Dropdown extends React.Component {
     );
   }
 }
+
+Dropdown.propTypes = {
+  value: React.PropTypes.string.isRequired,
+  onChange: React.PropTypes.func
+};
 
 window.addEventListener('click', e => ddInstances.forEach(item => item.close()), false);
 
