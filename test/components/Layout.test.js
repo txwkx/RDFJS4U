@@ -6,10 +6,10 @@ import Layout from '../../src/js/pages/Layout';
 
 describe("(Component) Layout", function() {
 
-  const shallowed = shallow(<Layout/>);
+  const wrapper = shallow(<Layout/>);
 
   it('renders without exploding', () => {
-    expect(shallowed).to.have.length(1);
+    expect(wrapper).to.have.length(1);
   });
 
 });

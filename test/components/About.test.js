@@ -6,10 +6,14 @@ import About from '../../src/js/pages/About';
 
 describe("(Component) About", function() {
 
-  const shallowed = shallow(<About/>);
+  const wrapper = shallow(<About/>);
 
   it('renders without exploding', () => {
-    expect(shallowed).to.have.length(1);
+    expect(wrapper).to.have.length(1);
+  });
+
+  it('has a page title', () => {
+    expect(wrapper.find('PageTitle')).to.have.length(1);
   });
 
 });
