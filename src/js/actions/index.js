@@ -69,7 +69,7 @@ export function queryTable(index, query){
 
       const filtered_libs = queried_libs.filter(lib => {
         return Array.from(query.entries()).every(([key, value]) => {
-          return typeof lib[key] === 'boolean' ? lib[key] === value : lib[key].indexOf(value) !== -1;
+          return typeof value === 'boolean' ? !!lib[key] === value : lib[key].indexOf(value) !== -1;
         });
       });
 
