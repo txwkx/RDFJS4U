@@ -43,7 +43,7 @@ class Dropdown extends Component {
     //Forming the list of items in the dropdown
     let ddList = this.props.dropdownList.map ( ddItem => {
       return <li
-              onClick={()=>{ this.assignFilter(ddItem.name); }}
+              onClick={()=>{ this.assignFilter(ddItem.value); }}
               key={ddItem.id}>
               <a>{ddItem.name}</a>
             </li>;

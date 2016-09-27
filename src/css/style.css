@@ -288,10 +288,10 @@ label {display: inline;}
   background-color: rgb(41, 128, 185);
 }
 .purple {
-  border: 3px solid rgb(142, 68, 173) !important;
+  border: 3px solid rgb(155, 89, 182)  !important;
 }
 .purple.active {
-  background-color: rgb(142, 68, 173);
+  background-color: rgb(155, 89, 182)
 }
 .grey {
   border: 3px solid rgb(149, 165, 166) !important;
