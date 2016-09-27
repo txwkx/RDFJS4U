@@ -18,15 +18,27 @@ class LibrariesTable extends React.Component {
     }
   }
 
+  formatSize(bytes) {
+   const sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB'];
+   if (bytes == 0) return '0 Byte';
+   const i = parseInt(Math.floor(Math.log(bytes) / Math.log(1024)));
+   return Math.round(bytes / Math.pow(1024, i), 2) + ' ' + sizes[i];
+ }
+
   render() {
-    const linksColumn = {
-      property: 'link',
-      header: { label: 'Link', props: { style: { width: 70 }} },
-      cell: { format: (link) => <a href={link} target='_blank'>Link <i class='fa fa-link'></i></a>}
-    };
+    const extraColumns = [
+      {
+        property: 'sourceSize',
+        header: { label: 'Size', props: { style: { width: 100 }} },
+        cell: { format: (sourceSize) => this.formatSize(sourceSize)}
+      }, {
+        property: 'link',
+        header: { label: 'Link', props: { style: { width: 70 }} },
+        cell: { format: (link) => <a href={link} target='_blank'>Link <i class='fa fa-link'></i></a>}
+    }];
 
     const rows = this.props.tcontent;
-    const columns = [...this.props.theaders, linksColumn];
+    const columns = [...this.props.theaders, ...extraColumns];
 
     return (
       <div class="col-lg-12">
