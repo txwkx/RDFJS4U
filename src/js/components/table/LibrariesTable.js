@@ -20,7 +20,7 @@ class LibrariesTable extends React.Component {
 
   formatSize(bytes) {
    const sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB'];
-   if (bytes == 0) return '0 Byte';
+   if (bytes == 0) return 'n/a';
    const i = parseInt(Math.floor(Math.log(bytes) / Math.log(1024)));
    return Math.round(bytes / Math.pow(1024, i), 2) + ' ' + sizes[i];
  }
@@ -49,7 +49,6 @@ class LibrariesTable extends React.Component {
           setActiveTab={this.setActiveTab.bind(this)}
           />
 
-      <div class="tab-content" id="tabsContent">
         <div class="table-responsive">
           <Table.Provider class="pure-table pure-table-striped table table-bordered table-hover"
             columns={columns}>
@@ -60,7 +59,6 @@ class LibrariesTable extends React.Component {
                 rowKey="id" />
           </Table.Provider>
         </div>
-      </div>
     </div>
     );
   }
