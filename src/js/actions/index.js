@@ -18,8 +18,8 @@ firebase.initializeApp(config);
 const rootRef = firebase.database().ref();
 
 
-export function getTableTabs() {
-  return dispatch => {
+export const getTableTabs = () => {
+  return dispatch  => {
     rootRef.child('tabletabs').once('value', snap => {
       dispatch({
         type: GET_TABLE_TABS,
@@ -27,9 +27,9 @@ export function getTableTabs() {
       });
     });
   };
-}
+};
 
-export function getTableHeaderList(index) {
+export const getTableHeaderList = (index) => {
   return (dispatch) => {
     rootRef.child('theaderList').child(index).once('value', snap => {
       dispatch({
@@ -38,9 +38,9 @@ export function getTableHeaderList(index) {
       });
     });
   };
-}
+};
 
-export function getFeatureSets(){
+export const getFeatureSets = () => {
   return (dispatch) => {
     rootRef.child('featuresSets').once('value', snap => {
       dispatch({
@@ -49,9 +49,9 @@ export function getFeatureSets(){
       });
     });
   };
-}
+};
 
-export function getTableContent(index){
+export const getTableContent = (index) => {
   return (dispatch) => {
     rootRef.child(`tcontent/${index}`).on('value', snap => {
       dispatch({
@@ -60,9 +60,9 @@ export function getTableContent(index){
       });
     });
   };
-}
+};
 
-export function queryTable(index, query){
+export const queryTable = (index, query) => {
   return (dispatch) => {
     rootRef.child(`tcontent/${index}`).on('value', snap => {
       const queried_libs = snap.val();
@@ -79,4 +79,4 @@ export function queryTable(index, query){
       });
     });
   };
-}
+};
