@@ -69,7 +69,7 @@
     "redux-logger": "^2.6.1",
     "react-redux": "^4.4.5",
     "react-router": "^2.8.1",
-    "reactabular": "^4.2.0",
+    "reactabular": "^5.2.1",
     "redux": "^3.6.0",
     "redux-thunk": "^2.1.0"
   }
