@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 
 const SearchResult = ({isVisible, results, hideSearch}) => {
 
@@ -23,6 +23,13 @@ const SearchResult = ({isVisible, results, hideSearch}) => {
     </div>
   );
 
+};
+
+
+SearchResult.propTypes = {
+  isVisible: PropTypes.bool.isRequired,
+  results: PropTypes.number.isRequired,
+  hideSearch: PropTypes.func
 };
 
 export default SearchResult;

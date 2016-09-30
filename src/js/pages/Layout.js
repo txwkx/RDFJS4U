@@ -1,22 +1,23 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 
 import Header from '../components/layout/Header';
 
-class Layout extends React.Component {
+const Layout = ({location, children}) => {
 
-  render() {
-    const { location } = this.props;
-
-    return (
+  return (
       <div>
         <Header location={location} />
         <div class='layout col-lg-12'>
-          {this.props.children}
+          {children}
         </div>
       </div>
     );
-  }
 
-}
+};
+
+Layout.propTypes = {
+  location: PropTypes.object.isRequired
+};
+
 
 export default Layout;

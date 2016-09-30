@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 
 const TableTabs = ({tabsList, activeTab, setActiveTab}) => {
 
@@ -19,9 +19,9 @@ const TableTabs = ({tabsList, activeTab, setActiveTab}) => {
 };
 
 TableTabs.propTypes = {
-  tabsList: React.PropTypes.array.isRequired,
-  activeTab: React.PropTypes.string.isRequired,
-  setActiveTab: React.PropTypes.func
+  tabsList: PropTypes.array.isRequired,
+  activeTab: PropTypes.string.isRequired,
+  setActiveTab: PropTypes.func
 };
 
 export default TableTabs;

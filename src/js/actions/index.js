@@ -1,5 +1,4 @@
 import firebase from 'firebase';
-import _ from 'lodash';
 
 export const GET_TABLE_TABS = 'GET_TABLE_TABS';
 export const GET_TABLE_HEADER = 'GET_TABLE_HEADER';

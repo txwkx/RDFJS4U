@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 
 const PageTitle = ({ pageTitle }) => {
 
@@ -12,6 +12,10 @@ const PageTitle = ({ pageTitle }) => {
       </div>
     );
 
-}
+};
+
+PageTitle.propTypes = {
+  pageTitle: PropTypes.string.isRequired
+};
 
 export default PageTitle;

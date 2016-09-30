@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 
 import { IndexLink, Link } from 'react-router';
 
@@ -23,6 +23,11 @@ const Header = ({ location }) => {
     </nav>
   );
 
-}
+};
+
+Header.propTypes = {
+  location: PropTypes.object.isRequired
+};
+
 
 export default Header;
