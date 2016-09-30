@@ -34,7 +34,7 @@ class LibrariesTable extends React.Component {
       }, {
         property: 'link',
         header: { label: 'Link', props: { style: { width: 70 }} },
-        cell: { format: (link) => <a href={link} target='_blank'>Link <i class='fa fa-link'></i></a>}
+        cell: { format: (link) => <a href={link} rel='noopener noreferrer' target='_blank'>Link <i class='fa fa-link'></i></a>}
     }];
 
     const rows = this.props.tcontent;
