@@ -78,9 +78,9 @@ export class Libraries extends Component {
       <div id="wrapper">
 
         <Sidebar
-          features={this.props.features}
           querySize={this.state.querySize}
           activeFiltersSet={this.state.activeFiltersSet}
+          features={this.props.features}
           onReset={this.resetFilters.bind(this)}
           onChange={this.updateQueryMap.bind(this)}
           applyFilters={this.applyFilters.bind(this)}
@@ -99,22 +99,19 @@ export class Libraries extends Component {
 
             <div class="row">
               <LibrariesTable
+                activeFilter={this.state.activeFiltersSet}
                 tabsList={this.props.tabledata.tabs}
                 theaders={this.props.tabledata.headers}
                 tcontent={this.props.tabledata.content}
                 setActiveFilter={this.setActiveFilter.bind(this)}
-                activeFilter={this.state.activeFiltersSet}
                 />
             </div>
+
           </div>
         </div>
       </div>
     );
   }
 }
-
-/*function mapStateToProps({ state => state ) {
-  return { libraries, features, fetchstatus };
-}*/
 
 export default connect(state => state, actions)(Libraries);

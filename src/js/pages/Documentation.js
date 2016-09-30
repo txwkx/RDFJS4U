@@ -2,9 +2,8 @@ import React from 'react';
 
 import PageTitle from '../components/layout/PageTitle';
 
-class Documentation extends React.Component {
+const Documentation = () => {
 
-  render() {
     return (
       <div id='page-content-wrapper'>
         <div class='container-fluid'>
@@ -16,8 +15,7 @@ class Documentation extends React.Component {
         </div>
       </div>
     );
-  }
 
-}
+};
 
 export default Documentation;

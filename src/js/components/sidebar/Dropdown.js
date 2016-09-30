@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 
 const ddInstances = [];
 
@@ -65,8 +65,8 @@ class Dropdown extends Component {
 }
 
 Dropdown.propTypes = {
-  value: React.PropTypes.string.isRequired,
-  onChange: React.PropTypes.func
+  value: PropTypes.string.isRequired,
+  onChange: PropTypes.func
 };
 
 window.addEventListener('click', e => ddInstances.forEach(item => item.close()), false);

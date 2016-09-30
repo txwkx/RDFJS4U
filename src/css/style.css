@@ -22,7 +22,7 @@ h3 {
 }
 
 hr {
-  margin: 10px 0px;
+  margin: 10px 0;
   border-color: #fff;
 }
 
@@ -104,7 +104,7 @@ label {display: inline;}
 
 .filter {
   position: relative;
-  margin: 12px 0px;
+  margin: 12px 0;
 }
 
 .filter a.checkbox{
@@ -130,7 +130,7 @@ label {display: inline;}
   padding-left: 10px;
 }
 
-.sidebar-nav i.fa {float: right;}
+.sidebar-nav .fa {float: right;}
 
 #sidebar-wrapper > div {
   margin: 5px 15px;

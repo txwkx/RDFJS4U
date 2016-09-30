@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component, PropTypes } from 'react';
 import ReactDOM from 'react-dom';
 
 import Checkbox from './Checkbox';
@@ -11,7 +11,7 @@ const filtersHash = {
   slider: Slider
 };
 
-class FeaturesSet extends React.Component {
+class FeaturesSet extends Component {
   constructor(props) {
     super(props);
     this.state = props.filters.reduce((obj, item) => {
@@ -35,7 +35,6 @@ class FeaturesSet extends React.Component {
   render() {
     let { filters } = this.props;
 
-    if(typeof filters !== 'undefined'){
       filters = filters.map(item => {
         const Filter = filtersHash[item.type];
         return <Filter
@@ -45,7 +44,6 @@ class FeaturesSet extends React.Component {
           onChange={this.onChange.bind(this, item)}
           />;
       });
-    }
 
     return (
       <div class={`${(this.props.isActive === true) ? 'active' : 'box'} ${this.props.colour}`}>
@@ -64,5 +62,14 @@ class FeaturesSet extends React.Component {
   }
 
 }
+
+FeaturesSet.propTypes = {
+  title: PropTypes.string.isRequired,
+  colour: PropTypes.string.isRequired,
+  filters: PropTypes.array.isRequired,
+  isActive: PropTypes.bool.isRequired,
+  onReset: PropTypes.func,
+  onChange: PropTypes.func
+};
 
 export default FeaturesSet;

@@ -2,9 +2,8 @@ import React from 'react';
 
 import PageTitle from '../components/layout/PageTitle';
 
-class About extends React.Component {
+const About = () => {
 
-  render() {
     return (
       <div id='page-content-wrapper'>
         <div class='container-fluid'>
@@ -21,8 +20,7 @@ class About extends React.Component {
         </div>
       </div>
     );
-  }
 
-}
+};
 
 export default About;

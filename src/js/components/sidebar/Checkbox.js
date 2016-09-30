@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 
 const Checkbox = ({value, title, onChange}) => {
 
@@ -18,9 +18,9 @@ const Checkbox = ({value, title, onChange}) => {
 };
 
 Checkbox.propTypes = {
-  value: React.PropTypes.bool.isRequired,
-  title: React.PropTypes.string.isRequired,
-  onChange: React.PropTypes.func
+  value: PropTypes.bool.isRequired,
+  title: PropTypes.string.isRequired,
+  onChange: PropTypes.func
 };
 
 export default Checkbox;

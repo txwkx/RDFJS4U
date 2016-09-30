@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { Table } from 'reactabular';
 
 import TableTabs from './TableTabs';
 
-class LibrariesTable extends React.Component {
+class LibrariesTable extends Component {
   constructor(props) {
     super(props);
     this.state = {
