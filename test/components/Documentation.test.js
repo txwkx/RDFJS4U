@@ -12,4 +12,16 @@ describe("(Component) Documentation", function() {
     expect(wrapper).to.have.length(1);
   });
 
+  it('has a page title', () => {
+    expect(wrapper.find('PageTitle')).to.have.length(1);
+  });
+
+  it('contains a user manual ', () => {
+    expect(wrapper.find('.user-manual')).to.have.length(1);
+  });
+
+  it('contains developer notes', () => {
+    expect(wrapper.find('.developer-notes')).to.have.length(1);
+  });
+
 });
