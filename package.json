@@ -51,7 +51,7 @@
     "webpack": "^1.13.2",
     "webpack-dashboard": "0.2.0",
     "webpack-dev-server": "^1.16.1",
-    "webpack-validator": "^2.2.7"
+    "webpack-validator": "^2.2.8"
   },
   "dependencies": {
     "classnames": "^2.2.5",
