@@ -10,6 +10,14 @@ const Documentation = () => {
           <div class='row'>
             <div class='documentation col-lg-12'>
               <PageTitle pageTitle={'Documentation'} />
+
+                <div class='user-manual'>
+
+                </div>
+                <div class='developer-notes'>
+                  
+                </div>
+
             </div>
           </div>
         </div>
