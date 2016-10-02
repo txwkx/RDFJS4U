@@ -1,6 +1,6 @@
 {
   "name": "rdfjs4u",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "description": "Online tool helping you pick a suitable RDF JavaScript library",
   "main": "index.js",
   "scripts": {
