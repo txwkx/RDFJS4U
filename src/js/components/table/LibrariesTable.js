@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import { Table } from 'reactabular';
 
 import TableTabs from './TableTabs';
@@ -64,5 +64,12 @@ class LibrariesTable extends Component {
   }
 
 }
+
+LibrariesTable.propTypes = {
+  tabsList: PropTypes.array.isRequired,
+  tcontent: PropTypes.array.isRequired,
+  theaders: PropTypes.array.isRequired,
+  activeFilter: PropTypes.string.isRequired
+};
 
 export default LibrariesTable;
