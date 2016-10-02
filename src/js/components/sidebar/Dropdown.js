@@ -53,10 +53,10 @@ class Dropdown extends Component {
       <div class={ddClass}>
         <button
           onClick={this.open.bind(this)}
-          class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">
+          class="btn btn-default dropdown-toggle" type="button">
           {this.props.value} <span class="caret"></span>
         </button>
-        <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+        <ul class="dropdown-menu">
           {ddList}
         </ul>
       </div>
