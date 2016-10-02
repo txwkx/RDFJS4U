@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { Component, PropTypes } from 'react';
 
 import FeaturesSet from '../sidebar/FeaturesSet';
 
-class Sidebar extends React.Component {
+class Sidebar extends Component {
   constructor(props) {
     super(props);
   }
@@ -47,5 +47,12 @@ class Sidebar extends React.Component {
   }
 
 }
+
+Sidebar.propTypes = {
+  features: PropTypes.array.isRequired,
+  activeFiltersSet: PropTypes.string.isRequired,
+  querySize: PropTypes.number.isRequired,
+  applyFilters: PropTypes.func
+};
 
 export default Sidebar;
