@@ -381,3 +381,51 @@ label {display: inline;}
     height: 5em;
   }
 }
+
+/* Documentation page */
+
+.documentation, .about {text-align: justify;}
+
+.about h3, .documentation h3 {
+ font-weight: 700;
+ font-size: 22px;
+ color: #1abc9c;
+}
+
+.user-manual, .developer-notes {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+.user-manual section {
+  border-top: 1px solid #fff;
+  margin: 15px;
+  padding: 10px;
+  display: inline-block;
+}
+
+.user-manual a, .developer-notes a {
+  color: #1abc9c;
+  cursor: pointer;
+}
+
+.user-manual img {float: right}
+
+.user-manual div {
+  max-width: 48%;
+  float: left;
+  padding: 0 2%;
+}
+.user-manual ol {padding-left: 15px;}
+
+/* About page */
+.about .copyright {max-width: 550px;}
+
+.about .copyright p {margin: 10px 0;}
+
+.about .btn-github {
+  width: 350px;
+  margin: 10px;
+  background-color: rgb(22, 160, 133);
+}
+
+.about section {margin: 15px;}
