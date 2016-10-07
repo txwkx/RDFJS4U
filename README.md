@@ -19,10 +19,9 @@ npm start
 ```
 
 for tests
-```
-npm test
-:pray:
-```
+
+`npm test` and :pray:
+
 
 ## Contributing
 
