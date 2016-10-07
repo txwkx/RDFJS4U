@@ -116,9 +116,7 @@ const Documentation = () => {
               <p>There is no need to say, but no one is willing to have such intensive tasks on the client side. We have evaluate over 10, 000 records in our experiments, which is almost non sense in the client side. All libraries are performing good in a reasonable amount of records on the client side ~100 records.</p>
 
               <h3>Results:</h3>
-              <div class="doc-results">
-
-              </div>
+              <a el='noopener noreferrer' target='_blank' href="https://gist.github.com/txwkx/a59c78d522cfbe46d60e7d66bd04a23f"> > Link to a Gist</a>
             </div>
 
           </div>
