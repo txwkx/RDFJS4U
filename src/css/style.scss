@@ -1,0 +1,50 @@
+@charset "UTF-8";
+
+//
+// Base and Utilities
+// -------------------------------------------------
+// Calls files for both base and utilities
+// The main structure of the app
+// Include 3rd party libraries here as well
+
+	// Import Other Libraries
+  // example: @import "vendors/breakpoint/stylesheets/breakpoint";
+
+
+	// Import Utilities
+	// suggest using a reset such as normalize, or rolling your own ex: @import "normalize";
+
+	@import "scss/vars";
+	@import "scss/typography";
+
+
+
+
+
+//
+// Partials
+// -------------------------------------------------
+// Could also be considered "modules"
+// Individual components of the page
+
+	@import "scss/buttons";
+	@import "scss/category-colors";
+  @import "scss/loader";
+	@import "scss/toggles";
+  @import "scss/navigation";
+  @import "scss/sidebar";
+  @import "scss/tables";
+
+
+
+
+
+//
+// Pages
+// -------------------------------------------------
+// In multi-page sites any styling that would be specific to
+// an invidiual page (on a level higher than partials) would be
+// placed here
+
+	@import "scss/page-about";
+  @import "scss/page-documentation";

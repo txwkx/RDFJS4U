@@ -1,0 +1,32 @@
+//
+// Main Navigation
+// ---------------
+
+.page-header {
+  border-bottom: 1px solid #fff;
+}
+
+
+.top-nav {
+  padding: 0 15px;
+
+  > li {
+    display: inline-block;
+    float: left;
+  }
+
+  > li a {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    line-height: 20px;
+  }
+}
+
+.top-nav>li>a:hover,
+.top-nav>li>a:focus,
+.top-nav>.open>a,
+.top-nav>.open>a:hover,
+.top-nav>.open>a:focus {
+  color: rgb(44, 62, 80);
+  background-color: rgb(236, 240, 241);
+}

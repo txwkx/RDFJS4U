@@ -1,0 +1,38 @@
+//
+// Typography
+// ---------------
+
+body {
+  color: #fff;
+  padding-top: 51px;
+  background-color: rgb(44, 62, 80);
+  font-family: $font-main;
+}
+
+h1 {
+  font-family: $font-secondary;
+  font-weight: bold;
+}
+
+h2 {
+  text-align: center;
+  font-size: 18px;
+}
+
+h3 {
+  font-size: 16px;
+  margin: 10px 0;
+  padding: 0;
+  font-family: $font-secondary;
+}
+
+hr {
+  margin: 10px 0;
+  border-color: #fff;
+}
+
+input:hover {cursor: pointer;}
+button:focus {outline:0;}
+
+p, .checkbox, .radio, .checkbox label, .radio label, ul, ol{margin: 0; padding: 0;}
+label {display: inline;}

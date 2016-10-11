@@ -1,0 +1,123 @@
+//
+// Sidebar
+// ---------------
+
+.sidebar-nav {
+  list-style: none;
+
+  li a ul li a {
+    padding-left: 10px;
+  }
+
+  .fa {
+    float: right;
+  }
+}
+
+#sidebar-wrapper {
+  z-index: 1000;
+  position: fixed;
+  left: 250px;
+  width: 0;
+  height: 100%;
+  margin-left: -250px;
+  overflow-y: auto;
+  background-color: rgb(34, 49, 63);
+
+  @media screen and (min-width: $sidebar-breakpoint) {
+    width: 270px;
+    padding-bottom: 200px;
+  }
+
+  > div {
+    margin: 5px 15px;
+    padding: 5px 15px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+  }
+
+  .toggled & {
+    width: 250px;
+
+    @media screen and (min-width: $sidebar-breakpoint) {
+      width: 0;
+    }
+  }
+}
+
+#wrapper {
+  padding-left: 0;
+
+  @media screen and (min-width: $sidebar-breakpoint) {
+    padding-left: 270px;
+  }
+
+  & .toggled {
+    padding-left: 250px;
+
+    @media screen and (min-width: $sidebar-breakpoint) {
+      padding-left: 0;
+    }
+  }
+}
+
+
+#page-content-wrapper {
+  width: 100%;
+  position: absolute;
+  padding: 15px;
+
+  @media screen and (min-width: $sidebar-breakpoint) {
+    padding: 20px;
+    position: relative;
+  }
+
+  .toggled & {
+    position: absolute;
+    margin-right: -250px;
+
+    @media screen and (min-width: $sidebar-breakpoint) {
+      position: relative;
+      margin-right: 0;
+    }
+  }
+}
+
+.dropdown-toggle, .dropdown-menu {
+  width: 100%;
+}
+
+.alert-info {
+  background-color: rgb(52, 152, 219);
+  border: none;
+}
+
+
+//
+// Nav filters
+// ---------------
+
+.filter {
+  position: relative;
+  margin: 12px 0;
+}
+
+.filter a.checkbox{
+  text-indent: 20px;
+}
+
+.filter a, .filter p {
+  display: block;
+  text-decoration: none;
+}
+
+.filter a:hover {
+  text-decoration: none;
+  color: #fff;
+}
+
+.filter li a:active,
+.filter li a:focus {
+  text-decoration: none;
+}

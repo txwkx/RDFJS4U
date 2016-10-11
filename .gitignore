@@ -1,4 +1,6 @@
 node_modules
 npm-debug.log
+style-test.css.map
+style-test.css
 .DS_Store
 build

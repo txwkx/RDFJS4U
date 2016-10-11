@@ -1,0 +1,24 @@
+//
+// Variables
+// ---------------
+
+
+/// Fonts
+$font-main: 'Roboto', sans-serif;
+$font-secondary:  'Rubik', sans-serif;
+
+
+/// Breakpoints
+$sidebar-breakpoint: 768px;
+
+
+/// Colors
+$categoryColors: (
+  "red": rgb(231, 76, 60),
+  "orange": rgb(211, 84, 0),
+  "yellow": rgb(243, 156, 18),
+  "green": rgb(22, 160, 133),
+  "blue": rgb(41, 128, 185),
+  "purple": rgb(155, 89, 182),
+  "grey": rgb(149, 165, 166)
+);
