@@ -1,0 +1,54 @@
+//
+// Page: Documentation
+// ---------------
+
+.documentation {
+  text-align: justify;
+
+  h3 {
+    font-weight: 700;
+    font-size: 22px;
+    color: #1abc9c;
+  }
+}
+
+.developer-notes {
+  max-width: 1400px;
+  margin: 0 auto;
+
+  a {
+    color: #1abc9c;
+    cursor: pointer;
+  }
+}
+
+.user-manual {
+  max-width: 1400px;
+  margin: 0 auto;
+
+  section {
+    border-top: 1px solid #fff;
+    margin: 15px;
+    padding: 10px;
+    display: inline-block;
+  }
+
+  a {
+    color: #1abc9c;
+    cursor: pointer;
+  }
+
+  img {
+    float: right;
+  }
+
+  div {
+    max-width: 48%;
+    float: left;
+    padding: 0 2%;
+  }
+
+  ol {
+    padding-left: 15px;
+  }
+}

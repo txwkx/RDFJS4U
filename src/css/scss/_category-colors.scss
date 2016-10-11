@@ -1,0 +1,35 @@
+//
+// Category Colors
+// ---------------
+
+.box {
+  pointer-events: none;
+  opacity: 0.5;
+
+  &.active {
+    opacity: 1;
+    pointer-events: all;
+  }
+
+}
+
+
+.alert-danger {
+  background-color: rgb(231, 76, 60);
+}
+
+.alert-info {
+  background-color: rgb(52, 152, 219);
+}
+
+
+// Loop through colors in $categoryColors (in _vars);
+@each $color, $categoryColor in $categoryColors {
+  .#{$color} {
+    border: 3px solid $categoryColor;
+  }
+
+  .#{$color}.active {
+    background-color: $categoryColor;
+  }
+}

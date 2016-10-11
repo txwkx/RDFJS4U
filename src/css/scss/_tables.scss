@@ -1,0 +1,73 @@
+//
+// Tables
+// ---------------
+
+.table-bordered {
+
+  tbody > tr > td {
+    border: 1px solid #95a5a6;
+    vertical-align: middle;
+  }
+
+  thead > tr > th {
+    border: 1px solid #95a5a6
+  }
+}
+
+.table-hover > tbody > tr:hover {
+  background-color: rgb(44, 62, 80);
+}
+
+.table-responsive {
+
+  .table {
+    background-color: rgb(52, 73, 94);
+
+    thead th {
+      text-align: center;
+    }
+  }
+}
+
+
+.nav-tabs {
+  border-bottom: 0;
+
+  li {
+    border: 1px solid transparent;
+    border-radius: 4px 4px 0 0;
+    margin-right: 2px;
+    opacity: 0.8;
+
+    &:hover,
+    &:active,
+    &:focus {
+      opacity: 1;
+    }
+  }
+
+  > li > a {
+    border: none;
+
+    &:hover,
+    &:active,
+    &:focus {
+      border-color: transparent;
+      background-color: transparent;
+    }
+  }
+
+  > li.active {
+    opacity: 1;
+
+    >a,
+    >a:hover,
+    >a:focus {
+      cursor: default;
+      background-color: transparent;
+      border: none;
+      font-weight: bold;
+      text-decoration: none;
+    }
+  }
+}
