@@ -12,6 +12,8 @@ import Layout from './pages/Layout';
 import Libraries from './pages/Libraries';
 import reducers from './reducers';
 
+import '../style/style.scss';
+
 const createStoreWithMiddleware = applyMiddleware(reduxThunk)(createStore);
 
 const app = document.getElementById('app');
