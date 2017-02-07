@@ -106,7 +106,7 @@ const Documentation = () => {
               <h2>Developers notes</h2>
               <h3>Setup</h3>
 
-                <p>Datasets used for evaluation: <a rel='noopener noreferrer' target='_blank' hre='http://dsg.uwaterloo.ca/watdiv'>Waterloo</a>. A tool to generate sample datasets, additionaly may also use the datasets provided for this evaluation.</p>
+                <p>Datasets used for evaluation: <a rel='noopener noreferrer' target='_blank' href='http://dsg.uwaterloo.ca/watdiv'>Waterloo</a>. A tool to generate sample datasets, additionaly may also use the datasets provided for this evaluation.</p>
                 <p>Environment: MacBook Pro(Late 2013, 2 GHz Intel Core i7, 8 GB 1600 MHz DDR3) + Apache web server.</p>
                 <p>Each library has a separate *.js file. Simply invoke the functions to run the experiment. There is a timer at the beginning of each file, and it stops at the end of processing. The duration of this period is the metric used for evaluation.</p>
                 <p>In order to have measurable data 3 different query results per library were collected; one simple and two complex queries.</p>
@@ -116,7 +116,7 @@ const Documentation = () => {
               <p>There is no need to say, but no one is willing to have such intensive tasks on the client side. We have evaluate over 10, 000 records in our experiments, which is almost non sense in the client side. All libraries are performing good in a reasonable amount of records on the client side ~100 records.</p>
 
               <h3>Results:</h3>
-              <a el='noopener noreferrer' target='_blank' href="https://gist.github.com/txwkx/a59c78d522cfbe46d60e7d66bd04a23f"> > Link to a Gist</a>
+              <a rel='noopener noreferrer' target='_blank' href="https://gist.github.com/txwkx/a59c78d522cfbe46d60e7d66bd04a23f"> > Link to a Gist</a>
             </div>
 
           </div>
