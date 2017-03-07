@@ -1,4 +1,6 @@
 # RDFJS4U
+
+[![Greenkeeper badge](https://badges.greenkeeper.io/txwkx/RDFJS4U.svg)](https://greenkeeper.io/)
 Online tool helping you pick a suitable RDF JavaScript library
 
 ## Status
